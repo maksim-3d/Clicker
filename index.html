@@ -6,9 +6,24 @@
       <meta name="description" content="кликер">
       <meta name="keyworld" content="кликер,тапалка">
       <title>clicker</title>
+      <link rel="stylesheet" href="style.css"
+        
     </head>
     <body>
-      <abbr title="кликай"><p><b>Кликер</b></p></abbr>
-      <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-3fy8-p-monetka-pikselnaya-png-15.png" width="5%">
+      <center>
+      <div class="conteiner">
+        <div class="mainBlock">
+          <button class='x' id='x' style="display: none" onclick="off()">закрыть</button>
+          <button class="y" id="y" style="display: none;">улучшения за 100</button>
+          <button class="z" id="z" style="display: none;">улучшения за 1000</button>
+          <button class="q" id="q" style="display: none;">улучшения за 10000</button>
+          <button class="u" id="u" style="display: none;">улучшения за 100000</button>
+          <p class="sumClick" id="sum">0</p>
+          <button class="yclick" id="yclick" onclick="yClick()">улучшить клик</button>
+          <button class="image-button" id="clickBtn"></button>
+        </div>
+      </div>
+      </center>
+      <script src="script.js"></script>
     </body>
 </html>
