@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #595959;
+  color: #b8b8b8;
+}
+
+.mainBlock {
+  background-color: #ffffff;
+  width: 383px;
+  height: 555px;
+  border-radius: 20px;
+}
+.yclick {
+  position: absolute;
+  text-align: center;
+  width: 100px;
+}
+
+.sumClick {
+  font-size: 110px;
+  font-weight: 110px;
+  position: absolute;
+  text-align: center;
+  width: 370px;
+}
+.image-button {
+  width: 150px;
+  height: 150px;
+  border: none;
+  background-image: url('https://img.freepik.com/free-vector/golden-coins-with-clover-icons_24877-83135.jpg');
+  background-size: cover;
+}
+.z {
+  width: 100px;
+}
+.q {
+  width: 100px;
+}
+.x {
+  width: 100px;
+  height: 30px
+}
+.y {
+  width: 100px;
+}
+.u {
+  width: 100px;
+}
