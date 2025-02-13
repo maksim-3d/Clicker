@@ -7,12 +7,10 @@ var yclick = document.getElementById('yclick');
 var a = 0;
 var sumCick = 0;
 var Plus = 1;
-alert(localStorage.heroLevel)
 clickBtnElement.onclick = function() {
   a = Number(localStorage.heroLevel);
   a += Plus;
   sumElement.innerHTML = a;
-  alert(localStorage.heroLevel)
   localStorage.heroLevel = a;
 
 }
