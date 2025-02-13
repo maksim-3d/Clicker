@@ -5,41 +5,40 @@ var yElement = document.getElementById('y')
 var qElement = document.getElementById('q')
 var yclick = document.getElementById('yclick');
 var a = 0;
-var sumCick = 0;
 var Plus = 1;
 clickBtnElement.onclick = function() {
-  a += Plus;
   a = Number(localStorage.heroLevel);
+  a += Plus;
   sumElement.innerHTML = a;
   localStorage.heroLevel = a;
 
 }
 yElement.onclick = function() {
-  if (sumCick >= 100){
+  if (a >= 100){
     Plus += 1;
-    sumCick -= 100;
-    sumElement.innerHTML = sumCick;
+    a -= 100;
+    sumElement.innerHTML = a;
 }
 }
 zElement.onclick = function(){
-if (sumCick >= 1000){
+if (a >= 1000){
   Plus += 10;
-  sumCick -= 1000;
-  sumElement.innerHTML = sumCick;
+  a -= 1000;
+  sumElement.innerHTML = a;
 }
 }
 qElement.onclick = function() {
-  if (sumCick >= 10000){
+  if (a >= 10000){
     Plus += 100;
-    sumCick -= 10000;
-    sumElement.innerHTML = sumCick;
+    a -= 10000;
+    sumElement.innerHTML = a;
 }
 }
 uElement.onclick = function() {
-  if (sumCick >= 100000){
+  if (a >= 100000){
     Plus += 1000;
-    sumCick -= 100000;
-    sumElement.innerHTML = sumCick;
+    a -= 100000;
+    sumElement.innerHTML = a;
 }
 }
 function yClick() {
