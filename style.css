@@ -12,9 +12,11 @@ body {
   border-radius: 20px;
 }
 .yclick {
+  position: absolute;
   text-align: center;
   width: 100px;
 }
+
 .sumClick {
   font-size: 110px;
   font-weight: 110px;
