@@ -11,10 +11,6 @@ body {
   height: 555px;
   border-radius: 20px;
 }
-.yclick {
-  position: absolute;
-  width: 100px;
-}
 
 .sumClick {
   font-size: 110px;
