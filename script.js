@@ -4,11 +4,17 @@ var zElement = document.getElementById('z')
 var yElement = document.getElementById('y')
 var qElement = document.getElementById('q')
 var yclick = document.getElementById('yclick');
+var a = 0;
 var sumCick = 0;
 var Plus = 1;
+alert(localStorage.heroLevel)
 clickBtnElement.onclick = function() {
-  sumCick += Plus;
-  sumElement.innerHTML = sumCick;
+  a = Number(localStorage.heroLevel);
+  a += Plus;
+  sumElement.innerHTML = a;
+  alert(localStorage.heroLevel)
+  localStorage.heroLevel = a;
+
 }
 yElement.onclick = function() {
   if (sumCick >= 100){
