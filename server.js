@@ -1,6 +1,7 @@
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({ port: 8080 });
+const port = 8080; // Порт, на котором будет работать сервер
+const wss = new WebSocket.Server({ port });
 
 let clients = {};
 
@@ -36,4 +37,4 @@ wss.on('connection', (ws) => {
     }
 });
 
-console.log('Сервер запущен на порту 8080');
+console.log(`Сервер запущен на порту ${port}`);
