@@ -2,9 +2,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master-branch ]
   pull_request:
-    branches: [ main ]
+    branches: [ master-branch ]
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14' # Укажите нужную версию Node.js
+        node-version: '14'
     
     - name: Install dependencies
       run: npm install
