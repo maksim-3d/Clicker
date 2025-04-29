@@ -1,2 +1,1 @@
- - name: Run server
-      run: node server.js
+run: node server.js
