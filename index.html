@@ -27,8 +27,7 @@
         let playerId;
 
         // Подключение к WebSocket серверу
-        const socket = new WebSocket('ws://localhost:8080');
-
+        const socket = new WebSocket('ws://192.168.0.178:8080');
         socket.onmessage = (event) => {
             const data = JSON.parse(event.data);
             
