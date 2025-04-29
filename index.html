@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Многопользовательская игра с квадратами</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        #gameCanvas {
+            background-color: #f0f0f0;
+            position: relative;
+        }
+        .player {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameCanvas"></div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const players = {};
+        let playerId;
+
+        // Подключение к WebSocket серверу
+        const socket = new WebSocket('ws://localhost:8080');
+
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            
+            if (data.type === 'update') {
+                // Обновляем позиции игроков
+                for (const id in data.positions) {
+                    if (!players[id]) {
+                        players[id] = document.createElement('div');
+                        players[id].className = 'player';
+                        canvas.appendChild(players[id]);
+                    }
+                    players[id].style.left = data.positions[id].x + 'px';
+                    players[id].style.top = data.positions[id].y + 'px';
+                }
+            }
+        };
+
+        socket.onopen = () => {
+            playerId = Date.now(); // Генерируем уникальный ID для игрока
+            players[playerId] = document.createElement('div');
+            players[playerId].className = 'player';
+            canvas.appendChild(players[playerId]);
+        };
+
+        function updatePosition(x, y) {
+            if (players[playerId]) {
+                players[playerId].style.left = x + 'px';
+                players[playerId].style.top = y + 'px';
+                socket.send(JSON.stringify({ type: 'move', x, y }));
+            }
+        }
+
+        document.addEventListener('keydown', (event) => {
+            const step = 10; // Шаг перемещения
+            let x = parseInt(players[playerId].style.left || 0);
+            let y = parseInt(players[playerId].style.top || 0);
+
+            switch (event.key) {
+                case 'ArrowUp':
+                    y -= step;
+                    break;
+                case 'ArrowDown':
+                    y += step;
+                    break;
+                case 'ArrowLeft':
+                    x -= step;
+                    break;
+                case 'ArrowRight':
+                    x += step;
+                    break;
+            }
+
+            updatePosition(x, y);
+        });
+    </script>
+</body>
+</html>
